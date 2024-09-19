@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "India Districts Map Extension",
+  "version": "1.0",
+  "description": "Display India district maps based on clipboard content processed by OpenAI",
+  "permissions": [
+    "https://www.perplexity.ai/*",
+    "https://chatgpt.com/",
+    "https://api.mapbox.com/*",
+    "https://www.fused.io/*",
+    "https://api.openai.com/*",
+    "clipboardRead"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.perplexity.ai/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "web_accessible_resources": [
+    "map.html"
+  ],
+  "content_security_policy": "script-src 'self' https://api.mapbox.com; object-src 'self'"
+}
